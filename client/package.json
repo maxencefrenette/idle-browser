@@ -1,0 +1,64 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "description": "Idle Browser",
+  "main": "main.js",
+  "repository": "https://github.com/maxencefrenette/idle-browser.git",
+  "author": "Maxence Frenette <maxence.frenette@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "nohoist": [
+      "electron",
+      "electron/**",
+      "electron-squirrel-startup",
+      "electron-squirrel-startup/**",
+      "@electron-forge",
+      "@electron-forge/**"
+    ]
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
+    "electron": "^13.1.2"
+  },
+  "dependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "client"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
